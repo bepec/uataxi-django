@@ -1,0 +1,13 @@
+# python/django
+*.log
+*.pot
+*.pyc
+local_settings.py
+
+# vim files
+[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
