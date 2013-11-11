@@ -1,0 +1,14 @@
+DEBUG = True
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': '/home/miracast/.db/uataxi.sqlite3',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    }
+}
+
+SECRET_KEY = '%cy#@qytum+r16f@n2_#x6ca)&wx%mdmo0q()q49vw!tx$8hk!'
