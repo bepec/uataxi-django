@@ -1,10 +1,26 @@
 from django.contrib import admin
-from taxi.models import TaxiService
 import taxi.models
+
+
+class CallbackOperatorInline(admin.TabularInline):
+    model = taxi.models.CallbackOperator
+    extra = 3
+
+
+class PhoneAdmin(admin.ModelAdmin):
+    inlines = [CallbackOperatorInline]
+
+
+class PhoneInline(admin.TabularInline):
+    model = taxi.models.PhoneNumber
+    extra = 5
+
+
+class TaxiAdmin(admin.ModelAdmin):
+    inlines = [PhoneInline]
 
 
 admin.site.register(taxi.models.City)
 admin.site.register(taxi.models.PhoneOperator)
-admin.site.register(taxi.models.PhoneNumber)
-admin.site.register(taxi.models.CallbackOperator)
-admin.site.register(TaxiService)
+admin.site.register(taxi.models.PhoneNumber, PhoneAdmin)
+admin.site.register(taxi.models.TaxiService, TaxiAdmin)

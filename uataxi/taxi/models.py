@@ -31,7 +31,7 @@ class PhoneNumber(models.Model):
     callback = models.BooleanField(default=False)
 
     def __unicode__(self):
-        return self.number
+        return self.number + (' (cb)' if self.callback else '')
 
 
 class CallbackOperator(models.Model):
