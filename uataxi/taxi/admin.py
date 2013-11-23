@@ -6,4 +6,5 @@ import taxi.models
 admin.site.register(taxi.models.City)
 admin.site.register(taxi.models.PhoneOperator)
 admin.site.register(taxi.models.PhoneNumber)
+admin.site.register(taxi.models.CallbackOperator)
 admin.site.register(TaxiService)
