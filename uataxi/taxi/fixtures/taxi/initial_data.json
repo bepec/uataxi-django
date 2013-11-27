@@ -1,0 +1,161 @@
+[
+{
+    "pk": 1, 
+    "model": "taxi.city", 
+    "fields": {
+        "name": "Illichivsk"
+    }
+},
+{
+    "pk": 2, 
+    "model": "taxi.city", 
+    "fields": {
+        "name": "Odesa"
+    }
+},
+{
+    "pk": 1, 
+    "model": "taxi.phoneoperator", 
+    "fields": {
+        "name": "Kyivstar"
+    }
+},
+{
+    "pk": 2, 
+    "model": "taxi.phoneoperator", 
+    "fields": {
+        "name": "Life:)"
+    }
+},
+{
+    "pk": 3, 
+    "model": "taxi.phoneoperator", 
+    "fields": {
+        "name": "MTC"
+    }
+},
+{
+    "pk": 4, 
+    "model": "taxi.phoneoperator", 
+    "fields": {
+        "name": "Landline"
+    }
+},
+{
+    "pk": 1, 
+    "model": "taxi.taxiservice", 
+    "fields": {
+        "city": 1, 
+        "name": "1525", 
+        "title": "Bastion"
+    }
+},
+{
+    "pk": 1, 
+    "model": "taxi.phonenumber", 
+    "fields": {
+        "taxi": 1, 
+        "operator": 4, 
+        "number": "0486824075", 
+        "callback": false
+    }
+},
+{
+    "pk": 2, 
+    "model": "taxi.phonenumber", 
+    "fields": {
+        "taxi": 1, 
+        "operator": 3, 
+        "number": "0502355075", 
+        "callback": false
+    }
+},
+{
+    "pk": 3, 
+    "model": "taxi.phonenumber", 
+    "fields": {
+        "taxi": 1, 
+        "operator": 1, 
+        "number": "0965807555", 
+        "callback": false
+    }
+},
+{
+    "pk": 4, 
+    "model": "taxi.phonenumber", 
+    "fields": {
+        "taxi": 1, 
+        "operator": 2, 
+        "number": "0937483396", 
+        "callback": false
+    }
+},
+{
+    "pk": 5, 
+    "model": "taxi.phonenumber", 
+    "fields": {
+        "taxi": 1, 
+        "operator": 1, 
+        "number": "0675560955", 
+        "callback": true
+    }
+},
+{
+    "pk": 6, 
+    "model": "taxi.phonenumber", 
+    "fields": {
+        "taxi": 1, 
+        "operator": 3, 
+        "number": "0503911525", 
+        "callback": true
+    }
+},
+{
+    "pk": 1, 
+    "model": "taxi.callbackoperator", 
+    "fields": {
+        "operator": 1, 
+        "number": 6
+    }
+},
+{
+    "pk": 2, 
+    "model": "taxi.callbackoperator", 
+    "fields": {
+        "operator": 2, 
+        "number": 6
+    }
+},
+{
+    "pk": 3, 
+    "model": "taxi.callbackoperator", 
+    "fields": {
+        "operator": 3, 
+        "number": 6
+    }
+},
+{
+    "pk": 4, 
+    "model": "taxi.callbackoperator", 
+    "fields": {
+        "operator": 1, 
+        "number": 5
+    }
+},
+{
+    "pk": 5, 
+    "model": "taxi.callbackoperator", 
+    "fields": {
+        "operator": 2, 
+        "number": 5
+    }
+},
+{
+    "pk": 6, 
+    "model": "taxi.callbackoperator", 
+    "fields": {
+        "operator": 3, 
+        "number": 5
+    }
+}
+]
