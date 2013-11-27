@@ -1,0 +1,12 @@
+{% if phone_list %}
+<h3>{{ taxi }} details</h3>
+<h4>Phone numbers:</h4>
+<ul>
+	{% for phone in phone_list %}
+	<li>{{ phone }}</li>
+	{% endfor %}
+</ul>
+{% else %}
+<h3>Sorry, no taxi services for {{ taxi }}...</h3>
+{% endif %}
+<a href="/city/{{ city.id }}/">Back to taxi services list in {{ city }}</a>
