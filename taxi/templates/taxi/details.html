@@ -9,4 +9,4 @@
 {% else %}
 <h3>Sorry, no taxi services for {{ taxi }}...</h3>
 {% endif %}
-<a href="/city/{{ city.id }}/">Back to taxi services list in {{ city }}</a>
+<a href="{% url 'city' city.id %}">Back to the taxi services in {{ city }}</a>

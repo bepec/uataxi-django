@@ -2,7 +2,7 @@
 <h3>Where do you need a taxi?</h3>
 <ul>
 	{% for city in city_list %}
-	<li><a href="/city/{{ city.id }}/">{{ city }}</a></li>
+	<li><a href="{% url 'city' city.id %}">{{ city }}</a></li>
 	{% endfor %}
 </ul>
 {% else %}

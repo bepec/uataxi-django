@@ -1,11 +1,11 @@
 {% if taxi_list %}
-<h3>Check out taxi services in {{ city.name }} city:</h3>
+<h3>Check out the taxi services in {{ city.name }} city:</h3>
 <ul>
 	{% for taxi in taxi_list %}
-	<li><a href="/taxi/{{ taxi.id }}/">{{ taxi }}</a></li>
+	<li><a href="{% url 'taxi' taxi.id %}">{{ taxi }}</a></li>
 	{% endfor %}
 </ul>
 {% else %}
 <h3>Sorry, no taxi services for {{ city }}...</h3>
 {% endif %}
-<a href="/">Back to list of cities</a>
+<a href="{% url 'index' %}">Back to the list of cities</a>
