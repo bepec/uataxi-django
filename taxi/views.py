@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from taxi import models
 
 
@@ -11,14 +11,14 @@ def index(request):
 
 def city(request, city_id):
     context = {
-        'city': models.City.objects.get(id=city_id),
+        'city': get_object_or_404(models.City, pk=city_id),
         'taxi_list': models.TaxiService.objects.filter(city=city_id)
     }
     return render(request, 'taxi/city.html', context)
 
 
 def taxi(request, taxi_id):
-    taxi = models.TaxiService.objects.get(id=taxi_id)
+    taxi = get_object_or_404(models.TaxiService, pk=taxi_id)
     context = {
         'taxi': taxi,
         'city': taxi.city,
