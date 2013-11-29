@@ -7,6 +7,9 @@ class City(models.Model):
     def __unicode__(self):
         return self.name
 
+    def taxi_count(self):
+        return len(TaxiService.objects.filter(city=self.pk))
+
 
 class PhoneOperator(models.Model):
     name = models.CharField(max_length=64)
@@ -18,7 +21,7 @@ class PhoneOperator(models.Model):
 class TaxiService(models.Model):
     name = models.CharField(max_length=10)
     title = models.CharField(max_length=64)
-    city = models.ForeignKey(City)
+    city = models.ForeignKey(City, related_name='taxi_set')
 
     def __unicode__(self):
         return self.name + (' (%s)' % self.title if self.title else '')
