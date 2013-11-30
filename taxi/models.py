@@ -29,12 +29,19 @@ class TaxiService(models.Model):
 
 class PhoneNumber(models.Model):
     number = models.CharField(max_length=16)
-    taxi = models.ForeignKey(TaxiService)
+    taxi = models.ForeignKey(TaxiService, related_name='phone_set')
     operator = models.ForeignKey(PhoneOperator)
     callback = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.number + (' (cb)' if self.callback else '')
+
+    def callback_operators(self):
+        if self.callback:
+            ops = CallbackOperator.objects.filter(number=self.pk)
+            return [op.operator for op in ops]
+        else:
+            return None
 
 
 class CallbackOperator(models.Model):
