@@ -2,13 +2,13 @@ from django.contrib import admin
 import taxi.models
 
 
-class CallbackOperatorInline(admin.TabularInline):
-    model = taxi.models.CallbackOperator
-    extra = 3
+#class CallbackOperatorInline(admin.TabularInline):
+#    model = taxi.models.CallbackOperator
+#    extra = 3
 
 
-class PhoneAdmin(admin.ModelAdmin):
-    inlines = [CallbackOperatorInline]
+#class PhoneAdmin(admin.ModelAdmin):
+#    inlines = [CallbackOperatorInline]
 
 
 class PhoneInline(admin.TabularInline):
@@ -21,6 +21,6 @@ class TaxiAdmin(admin.ModelAdmin):
 
 
 admin.site.register(taxi.models.City)
-admin.site.register(taxi.models.PhoneOperator)
-admin.site.register(taxi.models.PhoneNumber, PhoneAdmin)
+admin.site.register(taxi.models.PhoneCarrier)
+#admin.site.register(taxi.models.PhoneNumber, PhoneAdmin)
 admin.site.register(taxi.models.TaxiService, TaxiAdmin)

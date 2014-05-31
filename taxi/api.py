@@ -36,8 +36,8 @@ class TaxiResource(ModelResource):
 
 
 class PhoneResource(ModelResource):
-    callback_operators = fields.ListField(attribute='callback_operators',
-                                          null=True)
+    #callback_carriers = fields.ListField(attribute='callback_carriers',
+    #                                      null=True)
 
     class Meta:
         queryset = models.PhoneNumber.objects.all()

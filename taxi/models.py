@@ -11,15 +11,25 @@ class City(models.Model):
         return len(TaxiService.objects.filter(city=self.pk))
 
 
-class PhoneOperator(models.Model):
+class PhoneCarrier(models.Model):
     name = models.CharField(max_length=64)
+    mobile = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.name
 
 
+class PhoneCode(models.Model):
+    code = models.CharField(max_length=8)
+    carrier = models.ForeignKey(PhoneCarrier, related_name='code_set')
+    city = models.ForeignKey(City, related_name='code_set')
+
+    def __unicode__(self):
+        return self.code
+
+
 class TaxiService(models.Model):
-    name = models.CharField(max_length=10)
+    name = models.CharField(max_length=32)
     title = models.CharField(max_length=64)
     city = models.ForeignKey(City, related_name='taxi_set')
 
@@ -30,23 +40,27 @@ class TaxiService(models.Model):
 class PhoneNumber(models.Model):
     number = models.CharField(max_length=16)
     taxi = models.ForeignKey(TaxiService, related_name='phone_set')
-    operator = models.ForeignKey(PhoneOperator)
-    callback = models.BooleanField(default=False)
+    #carrier = models.ForeignKey(PhoneCarrier)
+    #callback = models.BooleanField(default=False)
 
     def __unicode__(self):
-        return self.number + (' (cb)' if self.callback else '')
+        return self.number
+        #return self.number + (' (cb)' if self.callback else '')
 
-    def callback_operators(self):
-        if self.callback:
-            ops = CallbackOperator.objects.filter(number=self.pk)
-            return [op.operator for op in ops]
-        else:
-            return None
+    #def callback_carriers(self):
+    #    if self.callback:
+    #        ops = CallbackCarrier.objects.filter(number=self.pk)
+    #        return [op.carrier for op in ops]
+    #    else:
+    #        return None
+
+    #def is_short(self):
+    #    return len(self.number) is 4
 
 
-class CallbackOperator(models.Model):
+class CallbackCarrier(models.Model):
     number = models.ForeignKey(PhoneNumber)
-    operator = models.ForeignKey(PhoneOperator)
+    carrier = models.ForeignKey(PhoneCarrier)
 
     def __unicode__(self):
-        return "%s - %s" % (self.number.number, self.operator.name)
+        return "%s - %s" % (self.number.number, self.carrier.name)
