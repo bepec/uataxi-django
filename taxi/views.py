@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.views.generic import TemplateView
 from taxi import models
 
 
@@ -25,3 +26,7 @@ def taxi(request, taxi_id):
         'phone_list': models.PhoneNumber.objects.filter(taxi=taxi_id),
     }
     return render(request, 'taxi/details.html', context)
+
+
+class AppView(TemplateView):
+    template_name = 'taxi/app.html'
