@@ -1,10 +1,16 @@
-{% if city_list %}
-<h3>Where do you need a taxi?</h3>
-<ul>
-	{% for city in city_list %}
-	<li><a href="{% url 'city' city.id %}">{{ city }}</a></li>
-	{% endfor %}
-</ul>
-{% else %}
-<h3>Sorry, no cities found...</h3>
-{% endif %}
+{% extends 'taxi/base_generic.html' %}
+{% load partition %}
+
+{% block header %}Где едем?{% endblock %}
+
+{% block content %}
+{% for row in city_list|rows:'3' %}
+  <div class="col-sm-4">
+    <ul>
+  {% for city in row %}
+      <li><a href="{% url 'city' city.id %}">{{ city }}</a></li>
+  {% endfor %}
+    </ul>
+  </div>
+{% endfor %}
+{% endblock %}
